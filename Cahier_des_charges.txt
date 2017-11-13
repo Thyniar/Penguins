@@ -1,0 +1,64 @@
+
+Web devMini projetSite de vente de pingouinsPaul-Adrien Charnoz – Guillaume Feltrin – Rémi Fontan – Enguerran Robert-Hublin
+13/11/2017
+
+ 
+Présentation :
+Pour ce projet d’étude, nous allons créer un site factice de vente de pingouin. Pour réaliser ce projet nous avons plusieurs exigences techniques : 
+-	Un système de création de compte utilisateur.
+-	Un système de panier. 
+-	Un accès à la base de données.
+-	Un système de commentaire pour les produits.
+Les personnes travaillant sur ce projet sont les suivantes :
+-	Paul-Adrien Charnoz
+-	Guillaume Feltrin
+-	Rémi Fontan
+-	Enguerran Robert-Hublin
+
+Descriptif du projet :
+Notre site contiendra plusieurs pages. Tout d’abord la page d’accueil contiendra une barre de navigation et un logo sur une image de fond statique. En défilant on pourra trouver différents articles (les nouveaux et les meilleurs articles), puis en fin de page un footer contenant une adresse de contact et les réseaux sociaux.
+Pour revenir à la barre de navigation, elle devra contenir plusieurs liens vers des pages référant les articles vendus en fonction de leurs catégories. Elle contiendra également un onglet permettant de se créer un compte ou de se connecter. Pour se créer un compte il faudra entrer les informations suivantes : 
+-	Nom
+-	Prénom
+-	Age
+-	Adresse mail
+-	Mot de passe
+-	Numéro de téléphone
+-	Code de sécurité pour vérifier que l’utilisateur n’est pas un robot
+Et pour se connecter il faudra entrer son adresse mail et son mot de passe.
+Les pages recensant les articles devront contenir : 
+-	Une photo de l’article
+-	Un court descriptif 
+-	Un bouton pour ajouter au panier
+Enfin notre barre de navigation contiendra un lien vers le panier, où seront stockés les articles ajoutés par l’utilisateur ainsi qu’un bouton permettant de valider notre achat.
+Pour retourner à la page d’accueil il suffira de cliquer sur un logo. Toutes les pages seront accessibles à partir de n’importe quelles pages, exception faite pour les pages de création de compte et de connexion. Sur ces pages une fois la démarche d’inscription/connexion effectuée et validée l’utilisateur sera redirigé sur la page d’accueil du site.
+
+Spécifications graphiques :
+1)	Polices et couleurs
+
+-	Couleurs froides : Bleu foncé, blanc.
+-	Couleurs chaudes : Noir, orange.
+-	Police : Arvo.
+-	Taille : entre 18 et 23 pour les titres et 12 pour les contenus.
+
+2)	Design du site
+
+a)	Page d’accueil
+
+-	Logo en haut à gauche.
+-	Menu déroulant en haut à droite (pourra être déroulant si besoin).
+-	Bannière statique (un paysage avec des pingouins) avec un bouton coloré renvoyant sur une page d’articles.
+-	Footer contenant des logos ronds pour les réseaux sociaux et une adresse de contact.
+
+b)	Page de vente
+
+-	Section séparant chaque article du précédent et du suivant.
+-	Petite photo de l’article.
+-	Courte description.
+-	Bouton vert pour ajouter au panier.
+
+c)	Page de connexion/inscription
+
+-	Plusieurs champs avec intitulé du champ au-dessus (comme dans un formulaire).
+-	Un bouton pour valider l’inscription ou la connexion et un autre pour l’annuler.
+-	La page de fond et le menu ne doivent pas s’afficher sur la page d’inscription/connexion.
