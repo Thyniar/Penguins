@@ -1,0 +1,24 @@
+Charte graphique
+
+Details du site :
+Couleurs froides : Bleu, Blanc
+Couleurs chaudes : Noir, Orange
+Police : Arvo
+Taille : Entre 18 et 23 (pour les titres)
+
+Design du site :
+-Page d’acceuil-
+
+ Logo « Your pinguin » en haut à gauche, menu (possibilité d’être déroulant) à droite.
+Insertion d’une bannière avec une image statique, peut être une image de pingouin ou un paysage.
+
+Inclusion d’articles sur les pingouins, en bas des pages boutons pour accéder aux réseaux sociaux.
+Bouton « Get your pinguin » pour accéder à la page de vente.
+
+-Page de vente-
+
+Mise des articles en lignes, avec en haut de page une gestion de catégorie (Penguins réels, chaussons pour Penguins…).
+
+
+
+
