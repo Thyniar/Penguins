@@ -18,6 +18,10 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
+        
+        <a href="inscription.php">Inscripiton</a>
+        <a href="connexion.php">Connexion</a>
+        
         <form name="inscription" method="post"</br>
             <center>
                 ID: <input type="text" name="login"/> </br>
@@ -94,7 +98,7 @@ and open the template in the editor.
                         $prenom = $_POST['prenom'];
                         $mail = $_POST['mail'];
 
-                       $req = $bdd->prepare('INSERT INTO connexion(login, password, nom, prenom, mail)'
+                       $req = $bdd->prepare('INSERT INTO membre(login, password, nom, prenom, mail)'
                                 . ' VALUES (:login, :password, :nom, :prenom, :mail)');
 
                         $req->execute(array(
@@ -104,7 +108,9 @@ and open the template in the editor.
                             ':mail' => $mail,
                             ':login' => $login
                         ));
-                        echo "<br>membre enregister ! ";
+                         echo '<body onLoad="alert(\'Membre ajouté !\')">';
+                        
+                         
                         }
                     }
                 ?>

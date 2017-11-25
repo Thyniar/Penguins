@@ -18,6 +18,10 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
+        
+        <a href="inscription.php">Inscripiton</a>
+        <a href="connexion.php">Connexion</a>
+        
         <form name="inscription" method="post"</br>
             <center>
                 ID: <input type="text" name="login"/> </br>
@@ -45,7 +49,7 @@ and open the template in the editor.
 
                     //echo "<br>$login<br>$password";
                     // enlever les commentaires pour afficher le test de la page de connexion
-                    $reponse = $bdd->query("SELECT * FROM connexion WHERE login = '$login' AND password = '$password'");
+                    $reponse = $bdd->query("SELECT * FROM membre WHERE login = '$login' AND password = '$password'");
                     $donnees = $reponse->fetch();
                     if ($login == $donnees['login'] && $password == $donnees['password'])
                         {
@@ -59,8 +63,6 @@ and open the template in the editor.
                         header('location: membres.php');
                         } else
                         {
-                        // Le visiteur n'a pas été reconnu comme étant membre de notre site. On utilise alors un petit javascript lui signalant ce fait
-                        echo '<body onLoad="alert(\'Membre non reconnu...\')">';
                         }
                     $reponse->closeCursor(); // Termine le traitement de la requÃªte */
                     }
