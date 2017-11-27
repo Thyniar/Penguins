@@ -40,6 +40,7 @@ and open the template in the editor.
             <div class="row">
                 <div class="col-lg-4 col-lg-offset-1">
                     <h1>Contact us :</h1>
+                    <br>
                     <form>
                         <div class="input-group margin-bottom-sm">
                             <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
@@ -68,18 +69,38 @@ and open the template in the editor.
                         <br>
                         <button type="submit" class="btn btn-default pull-right">Submit</button>
                         <br>
-                    </form>
+                    </form>                  
+                </div>
+                <div class="col-lg-4 col-lg-offset-2" id="info">
+                    <h1>Information :</h1>
+                    <ul>
+                        <li>
+                            <h3>Address :</h3>
+                            <P>ISEN TOULON</p>
+                            <p>Place Georges Pompidou</p>
+                            <p>83000 Toulon</p>
+                            <p>France</p>
+                        </li>
+                        <li>
+                            <h3>Mail :</h3>
+                            <a href="yourpenguin83@gmail.com">yourpenguin83@gmail.com</a>
+                        </li>
+                        <li>
+                            <h3>Phone :</h3>
+                            <p>(000) 000-0000</p>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
         <br><br>
-                   
+
         <footer>
             <div class="container col-lg-12">
                 <div class="row">                   
                     <ul>
-                        <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
+                        <li><a href="https://www.facebook.com/Your-penguin-370472053409761"><i class="fa fa-facebook-square"></i></a></li>
+                        <li><a href="https://twitter.com/GetPenguin6"><i class="fa fa-twitter"></i></a>
                         <li><a href="#"><i class="fa fa-instagram"></i></a>
                     </ul>
                     <p><i class="fa fa-copyright"></i> copyright. All rights reserved.</p>
