@@ -18,10 +18,10 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        
+
         <a href="inscription.php">Inscripiton</a>
         <a href="connexion.php">Connexion</a>
-        
+
         <form name="inscription" method="post"</br>
             <center>
                 ID: <input type="text" name="login"/> </br>
@@ -59,10 +59,19 @@ and open the template in the editor.
                         $_SESSION['login'] = $login;
                         $_SESSION['password'] = $password;
 
+                        /* Initialisation du panier */
+                        $_SESSION['panier'] = array();
+                        /* Subdivision du panier */
+                        $_SESSION['panier']['id_article'] = array();
+                        $_SESSION['panier']['qte'] = array();
+                        $_SESSION['panier']['taille'] = array();
+                        $_SESSION['panier']['prix'] = array();
+
                         // on redirige notre visiteur vers une page de notre section membre
                         header('location: membres.php');
                         } else
                         {
+                        
                         }
                     $reponse->closeCursor(); // Termine le traitement de la requÃªte */
                     }

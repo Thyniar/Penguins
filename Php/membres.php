@@ -31,6 +31,8 @@ and open the template in the editor.
 
             // On affiche un lien pour fermer notre session
             echo '<a href="../logout.php">logout</a>';
+            echo "<br>";
+            echo '<a href="panier.php">panier</a>';
             } else
             {
             echo 'Les variables ne sont pas déclarées.';
