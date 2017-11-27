@@ -1,0 +1,132 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 24 nov. 2017, 14:12:53
+    Author     : Enguerran
+*/
+
+body.landing #header {
+    background-color: transparent;
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+
+#header {
+    background: #d3d3d3;
+    color: #ffffff;
+    cursor: default;
+    height: 7.25em;
+    line-height: 4.75em;
+    width: 100%;
+    z-index: 10000;
+}
+
+#header h1 {
+    color: #ffffff;
+    height: inherit;
+    left: 2.5em;
+    line-height: inherit;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+}
+
+#header h1 a {
+    font-size: 1.25em;
+}
+
+
+#header .container {
+    position: relative;
+}
+
+#header .container h1 {
+    left: 0;
+}
+
+#header nav{
+    height: inherit;
+    line-height: inherit;
+    position: absolute;
+    right: 2.75em;
+    top: 0;
+    vertical-align: middle;
+    font-size: 20px;
+     margin-top: 25px;
+}
+
+#header nav > ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+#header nav > ul > li {
+    border-radius: 4px;
+    display: inline-block;
+    margin-left: 1.5em;
+    padding-left: 0;
+}
+
+#header nav > ul > li > a{
+    text-decoration: none;
+    color:#000;
+}
+
+#header nav > ul > li > a:hover{
+    text-decoration: none;
+    color:#fff;
+}
+
+#navbis{
+    height: inherit;
+    line-height: inherit;
+    position: absolute;
+    left: 150px;
+    top: 0;
+    vertical-align: middle;
+    font-size: 20px;
+}
+
+#caddie{
+    font-size: 32px;
+}
+
+#contact{
+    margin-top: 100px;
+    height: 590px;
+}
+
+
+footer div{
+    background: #202222;
+    text-align: center;
+    font-size:15px;
+    color: #fff;
+}
+
+footer ul > li {
+    list-style: none;
+    margin-right: 50px;
+    display: inline-block;
+    font-size: 40px;
+}
+
+footer ul > li > a i {
+    margin:10px;
+    color: #fff;
+}
+
+footer ul > li > a i:hover {
+    color:#4682B4;
+}
+
+footer > div p{
+    margin-top: 10px;
+}
+
