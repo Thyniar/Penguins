@@ -13,7 +13,7 @@ and open the template in the editor.
         <link href="CSS/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
     </head>
     <body class="landing">
-
+        
         <!-- Header -->
         <header id="header">
             <h1><a href="index.php"><img class="img-responsive" src="Images/logoMenu2.png" alt=""/></a></h1>
@@ -27,8 +27,17 @@ and open the template in the editor.
 
             <nav>
                 <ul>
-                    <li><a href="#"><i class="fa fa-user"></i> Sign Up </a></li>
-                    <li><a href="#"><i class="fa fa-sign-in"></i> Sign In </a></li>
+                    <?php
+                        if (isset($_SESSION['login']) && isset($_SESSION['password'])){
+                            echo '<li><a href="membres.php"><i class="fa fa-user" style="font-size:30px;"></i></a></li>';
+                            echo '<li><a href="Logout.php"><i class="fa fa-sign-out"></i> Log out </a></li>';                         
+                        }
+                        
+                        else{
+                            echo '<li><a href="Log.php"><i class="fa fa-user-plus"></i> Sign Up </a></li>';
+                            echo '<li><a href="Log.php"><i class="fa fa-sign-in"></i> Sign In </a></li>';
+                        }
+                     ?>
                     <li><a href="Contact.php"><i class="fa fa-address-book"></i> Contact</a>
                     <li><a href="#"><i class="fa fa-shopping-cart" id="caddie"></i></a></li>
                 </ul>
@@ -41,7 +50,7 @@ and open the template in the editor.
         <div class="container col-lg-12" id="CoInsc">
             <div class="row">
                 <div class="col-lg-2 col-lg-offset-2">
-                    <h1>Log in :</h1>
+                    <h1>Log in <i class="fa fa-sign-in"></i></h1>
                     <br>
                     <form method="post" name="connexion">
                         <div class="input-group margin-bottom-sm">
@@ -54,40 +63,54 @@ and open the template in the editor.
                             <input class="form-control" type="password" name="password" placeholder="Password">
                         </div>
                         <br>
+                        <a href="#">Forgot your password ?</a>
                         <button type="submit" name="validerConnexion"class="btn btn-default pull-right">Connect</button>
                     </form>
 
                     <?php
-                    try {
-                        //Permet de récuperer les données de la base de donnée
-                        $bddConnexion = new PDO('mysql:host=localhost;dbname=penguins;charset=utf8', 'root', '');
-                    } catch (Exception $e) { // Si erreur
-                        die('Erreur : ' . $e->getMessage());
+                try
+                    {
+                    //Permet de rÃ©cuperer les donnÃ©es de la base de donnÃ©e
+                    $bdd = new PDO('mysql:host=localhost;dbname=penguins;charset=utf8', 'root', '');
+                    } catch (Exception $e) // Si erreur
+                    {
+                    die('Erreur : ' . $e->getMessage());
                     }
-                    if (isset($_POST['validerConnexion'])) {
-                        $login = $_POST['login'];
-                        $password = $_POST['password'];
-                        //echo "<br>$login<br>$password";
-                        // enlever les commentaires pour afficher le test de la page de connexion
-                        $reponse = $bddConnexion->query("SELECT * FROM connexion WHERE login = '$login' AND password = '$password'");
-                        $donnees = $reponse->fetch();
-                        if ($login == $donnees['login'] && $password == $donnees['password']) {
-                            session_start();
-                            $_SESSION['login'] = $login;
-                            $_SESSION['password'] = $password;
-                            // on redirige notre visiteur vers une page de notre section membre
-                            header('location: membres.php');
-                        } else {
-                            // Le visiteur n'a pas été reconnu comme étant membre de notre site. On utilise alors un petit javascript lui signalant ce fait
-                            echo '<body onLoad="alert(\'Membre non reconnu...\')">';
+                if (isset($_POST['validerConnexion']))
+                    {
+                    $login = $_POST['login'];
+                    $password = $_POST['password'];
+                    //echo "<br>$login<br>$password";
+                    // enlever les commentaires pour afficher le test de la page de connexion
+                    $reponse = $bdd->query("SELECT * FROM membre WHERE login = '$login' AND password = '$password'");
+                    $donnees = $reponse->fetch();
+                    if ($login == $donnees['login'] && $password == $donnees['password'])
+                        {
+                        session_start();
+                        $_SESSION['login'] = $login;
+                        $_SESSION['password'] = $password;
+                        /* Initialisation du panier */
+                        /*$_SESSION['panier'] = array();*/
+                        /* Subdivision du panier */
+                        /*$_SESSION['panier']['id_article'] = array();
+                        $_SESSION['panier']['qte'] = array();
+                        $_SESSION['panier']['taille'] = array();
+                        $_SESSION['panier']['prix'] = array();*/
+                        // on redirige notre visiteur vers une page de notre section membre
+                        header('location: membres.php');
+                        } else
+                        {
+                            echo'<br><div class="alert alert-danger">
+                                <strong>Error !</strong> Wrong Login or Password !
+                                </div>';
                         }
-                        $reponse->closeCursor(); // Termine le traitement de la requÃªte */
+                    $reponse->closeCursor(); // Termine le traitement de la requÃªte */
                     }
-                    ?>
+                ?>
                 </div>
 
                 <div class="col-lg-3 col-lg-offset-3">
-                    <h1>Register :</h1>
+                    <h1>Register <i class="fa fa-user-plus"></i></h1>
                     <br>
                     <form method="post" name="inscription">
                         <div class="input-group margin-bottom-sm">
@@ -119,61 +142,73 @@ and open the template in the editor.
                     </form>
                     
                     <?php
-
-                    function
-                    ErrorMessage($mot) {
-                        echo "<br>le champs $mot n'est pas remplis !";
+                function
+                ErrorMessage($mot)
+                    {
+                    echo "<br>le champs $mot n'est pas remplis !";
                     }
-
-                    try {
-                        //Permet de rÃ©cuperer les donnÃ©es de la base de donnÃ©e
-                        $bddInscription = new PDO('mysql:host=localhost;dbname=penguins;charset=utf8', 'root', '');
-                    } catch (Exception $e) { // Si erreur
-                        die('Erreur : ' . $e->getMessage());
+                try
+                    {
+                    //Permet de rÃ©cuperer les donnÃ©es de la base de donnÃ©e
+                    $bdd = new PDO('mysql:host=localhost;dbname=penguins;charset=utf8', 'root', '');
+                    } catch (Exception $e) // Si erreur
+                    {
+                    die('Erreur : ' . $e->getMessage());
                     }
-                    $cmpt = 5;
-
-                    if (isset($_POST['validerInscription'])) {
-                        if (empty($_POST['login'])) {
-                            ErrorMessage('login');
-                            $cmpt--;
+                $cmpt = 5;
+                
+                if (isset($_POST['validerInscription']))
+                    {
+                    if (empty($_POST['login']))
+                        {
+                        ErrorMessage('login');
+                        $cmpt--;
                         }
-                        if (empty($_POST['password'])) {
-                            ErrorMessage('password');
-                            $cmpt--;
+                    if (empty($_POST['password']))
+                        {
+                        ErrorMessage('password');
+                        $cmpt--;
                         }
-                        if (empty($_POST['mail'])) {
-                            ErrorMessage('mail');
-                            $cmpt--;
+                    if (empty($_POST['mail']))
+                        {
+                        ErrorMessage('mail');
+                        $cmpt--;
                         }
-                        if (empty($_POST['prenom'])) {
-                            ErrorMessage('prenom');
-                            $cmpt--;
+                    if (empty($_POST['prenom']))
+                        {
+                        ErrorMessage('prenom');
+                        $cmpt--;
+                        
                         }
-                        if (empty($_POST['nom'])) {
-                            ErrorMessage('nom');
-                            $cmpt--;
+                    if (empty($_POST['nom']))
+                        {
+                        ErrorMessage('nom');
+                        $cmpt--;
+                        
                         }
-
-                        if ($cmpt == 5) {
-                            $login = $_POST['login'];
-                            $password = $_POST['password'];
-                            $nom = $_POST['nom'];
-                            $prenom = $_POST['prenom'];
-                            $mail = $_POST['mail'];
-                            $req = $bddInscription->prepare('INSERT INTO connexion(login, password, nom, prenom, mail)'
-                                    . ' VALUES (:login, :password, :nom, :prenom, :mail)');
-                            $req->execute(array(
-                                ':password' => $password,
-                                ':nom' => $nom,
-                                ':prenom' => $prenom,
-                                ':mail' => $mail,
-                                ':login' => $login
-                            ));
-                            echo "<br>membre enregister ! ";
+                        
+                    if($cmpt==5)
+                        {
+                        $login = $_POST['login'];
+                        $password = $_POST['password'];
+                        $nom = $_POST['nom'];
+                        $prenom = $_POST['prenom'];
+                        $mail = $_POST['mail'];
+                       $req = $bdd->prepare('INSERT INTO membre(login, password, nom, prenom, mail)'
+                                . ' VALUES (:login, :password, :nom, :prenom, :mail)');
+                        $req->execute(array(
+                            ':password' => $password,
+                            ':nom' => $nom,
+                            ':prenom' => $prenom,
+                            ':mail' => $mail,
+                            ':login' => $login
+                        ));
+                         echo '<body onLoad="alert(\'Membre ajouté !\')">';
+                        
+                         
                         }
                     }
-                    ?>
+                ?>
                 </div>
             </div>
         </div>

@@ -13,7 +13,7 @@ and open the template in the editor.
         <link href="CSS/Contact.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-
+       <?php session_start(); ?>
         <!-- Header -->
         <header id="header">
             <h1><a href="index.php"><img class="img-responsive" src="Images/logoMenu2.png" alt=""/></a></h1>
@@ -27,8 +27,17 @@ and open the template in the editor.
 
             <nav>
                 <ul>
-                    <li><a href="Log.php"><i class="fa fa-user"></i> Sign Up </a></li>
-                    <li><a href="Log.php"><i class="fa fa-sign-in"></i> Sign In </a></li>
+                    <?php
+                        if (isset($_SESSION['login']) && isset($_SESSION['password'])){
+                            echo '<li><a href="membres.php"><i class="fa fa-user" style="font-size:30px;"></i></a></li>';
+                            echo '<li><a href="Logout.php"><i class="fa fa-sign-out"></i> Log out </a></li>';                         
+                        }
+                        
+                        else{
+                            echo '<li><a href="Log.php"><i class="fa fa-user-plus"></i> Sign Up </a></li>';
+                            echo '<li><a href="Log.php"><i class="fa fa-sign-in"></i> Sign In </a></li>';
+                        }
+                     ?>
                     <li><a href="Contact.php"><i class="fa fa-address-book"></i> Contact</a>
                     <li><a href="#"><i class="fa fa-shopping-cart" id="caddie"></i></a></li>
                 </ul>
