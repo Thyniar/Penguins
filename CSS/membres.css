@@ -4,10 +4,9 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : 22 nov. 2017, 13:16:24
+    Created on : 28 nov. 2017, 09:50:51
     Author     : Enguerran
 */
-
 
 body.landing #header {
     background-color: transparent;
@@ -17,13 +16,14 @@ body.landing #header {
 }
 
 #header {
-    background-color: #202222;
+    background-image: linear-gradient(120deg,#E5E7E9 10%, #2874a6 75%);
     color: #ffffff;
     cursor: default;
-    height: 4.75em;
+    height: 7.25em;
     line-height: 4.75em;
     width: 100%;
     z-index: 10000;
+    
 }
 
 #header h1 {
@@ -58,13 +58,15 @@ body.landing #header {
     top: 0;
     vertical-align: middle;
     font-size: 20px;
-     margin-top: 25px;
+    margin-top: 25px;
+     
 }
 
 #header nav > ul {
     list-style: none;
     margin: 0;
     padding-left: 0;
+    
 }
 
 #header nav > ul > li {
@@ -72,11 +74,13 @@ body.landing #header {
     display: inline-block;
     margin-left: 1.5em;
     padding-left: 0;
+    
 }
 
 #header nav > ul > li > a{
     text-decoration: none;
     color:#000;
+    
 }
 
 #header nav > ul > li > a:hover{
@@ -98,100 +102,8 @@ body.landing #header {
     font-size: 32px;
 }
 
-/* Banner */
-
-#banner {
-
-    background: url("../Images/background3.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 16em 0em 14em;
-    text-align: center;
-    height: 990px;
-}
-
-#banner img {
-   margin:auto;
-}
 
 
-#banner p {
-    font-size: 50px;
-    font-weight: bold;
-    margin: 1.5em 0 0 0;
-    color:#000000;
-}
-
-#banner .button {
-    background-color: #0066cc;
-    border: 1px solid #ffffff;
-    font-weight: 300;
-}
-
-#banner .button:hover {
-    background-color:#0D4F8B;
-}
-
-#one{
-    background: #4F94CD;
-    background-image: linear-gradient(120deg, #4F94CD 25%, #4682B4 75%);
-    height: 550px;
-    text-align: center;
-    color: #fff;
-}
-
-#one div > i{
-    font-size: 75px;
-}
-
-
-#one h3{
-    margin-top: 100px;
-    margin-bottom: 100px;
-    font-size: 25px;
-}
-
-#two{
-    height: 500px;
-    text-align: center;
-    
-}
-
-/* Icon */
-
-.icon {
-    text-decoration: none;
-    border-bottom: none;
-    position: relative;
-}
-
-.icon:before {
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    font-family: FontAwesome;
-    font-style: normal;
-    font-weight: normal;
-    text-transform: none !important;
-}
-
-.icon > .label {
-    display: none;
-}
-
-.icon.rounded {
-    border-radius: 100%;
-    border: 1px solid;
-    display: inline-block;
-    height: 2em;
-    line-height: 2em;
-    text-align: center;
-    width: 2em;
-}
-
-.icon.rounded.big {
-    font-size: 3.5em;
-}
 
 footer div{
     background: #202222;

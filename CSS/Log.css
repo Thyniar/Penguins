@@ -107,6 +107,19 @@ body.landing #header {
     height: 590px;
 }
 
+#CoInsc a{
+    color: #000;
+    text-decoration: none;
+}
+
+#CoInsc a:hover{
+    color:#4682B4;
+}
+
+#CoInsc button:hover{
+    background:#4682B4;
+}
+
 footer div{
     background: #202222;
     text-align: center;
