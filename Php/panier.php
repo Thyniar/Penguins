@@ -4,7 +4,7 @@ include('fonction_panier.php');
 session_start();
 ?>
 <?php
-// dédier au test de démarage
+// dédier au item de démarage
 /* Ici, on sait que le panier existe, donc on ajoute l'article dedans. */
 /* array_push($_SESSION['panier']['id_article'],$select['id']); 
   array_push($_SESSION['panier']['qte'],$select['qte']);
@@ -23,34 +23,37 @@ session_start();
 <body>
 
     <?php
-    if (!isset($_SESSION['panier']))
-        {
+    if (!isset($_SESSION['panier'])) {
         /* Initialisation du panier */
         $_SESSION['panier'] = array();
-        /* Subdivision du panier */
-        $_SESSION['panier']['qte'] = array();
-        $_SESSION['panier']['taille'] = array();
-        $_SESSION['panier']['prix'] = array();
-        }
-    $test1 = array();
-    $test1['id'] = "phlevis501";
-    $test1['qte'] = 2;
-    $test1['taille'] = "56";
-    $test1['prix'] = 84.95;
-
-    $test2['id'] = "vm654321";
-    $test2['qte'] = 1;
-    $test2['taille'] = "34";
-    $test2['prix'] = 434.95;
+    }
+    $item1 = array();
+    $item1['id'] = "42";
+    $item1['prix'] = 84.95;
     ?>
-    <input type="button" value="Ajouter un élément au panier" name="bajout">
+    <form name="inscription" method="post"</br>
+
+        <input type="submit" name="ajouter" value="Ajouter">
+        <input type="submit" name="supprimer" value="Retirer">
+        <input type="submit" name="vider" value="Vider le panier">
+        <input type="submit" name="enlever" value="Enlever l'élément du panier">
+
+    </form>
+
     <pre> 
         <?php
-        
-        if($_POST['bajout'])
-            {
-            ajout($test1);
-            }
+        if (isset($_POST['ajouter'])) {
+            addItem($item1, 1);    
+        }
+        if (isset($_POST['supprimer'])) {
+            deleteItem($item1, 1);
+        }
+        if (isset($_POST['vider'])) {
+            emptyBasket();
+        }
+        if (isset($_POST['enlever'])) {
+            EmptyItem($item1);
+        }
         ?>
         <?php
         var_dump($_SESSION['panier']);

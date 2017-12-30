@@ -61,12 +61,7 @@ and open the template in the editor.
 
                         /* Initialisation du panier */
                         $_SESSION['panier'] = array();
-                        /* Subdivision du panier */
-                        $_SESSION['panier']['id_article'] = array();
-                        $_SESSION['panier']['qte'] = array();
-                        $_SESSION['panier']['taille'] = array();
-                        $_SESSION['panier']['prix'] = array();
-
+                        
                         // on redirige notre visiteur vers une page de notre section membre
                         header('location: membres.php');
                         } else
