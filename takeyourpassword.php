@@ -17,31 +17,67 @@ and open the template in the editor.
             <button type="submit" name="valider"class="btn btn-default pull-right">Valider</button>
         </form>
         <?php
-        try {
-            //Permet de récuperer les données de la base de donnée
-            $bdd = new PDO('mysql:host=localhost;dbname=penguins;charset=utf8', 'root', '');
-        } catch (Exception $e) { // Si erreur
-            die('Erreur : ' . $e->getMessage());
-        }
+        /* try
+          {
+          //Permet de récuperer les données de la base de donnée
+          $bdd = new PDO('mysql:host=localhost;dbname=penguins;charset=utf8', 'root', '');
+          } catch (Exception $e)
+          { // Si erreur
+          die('Erreur : ' . $e->getMessage());
+          }
 
-        if (isset($_POST['valider'])) {
-            if ($_POST['password'] === $_POST['passwordConfirm']) {
+          if (isset($_POST['valider']))
+          {
+          if ($_POST['password'] === $_POST['passwordConfirm'])
+          {
+          $mail = $_POST['mail'];
+          $mdp = $_POST['password'];
+
+          $sql = $connexionPDO->prepare("UPDATE password SET password = '$mdp' WHERE mail = '$mail' ");
+          $sql->execute();
+          } else
+          {
+
+          }
+
+          $bdd->close();
+
+          echo "fait";
+          } */
+
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "penguins";
+
+        if (isset($_POST['valider']))
+            {
+            if ($_POST['password'] === $_POST['passwordConfirm'])
+                {
                 $mail = $_POST['mail'];
                 $mdp = $_POST['password'];
 
-                $sql = ("UPDATE password SET password = '$mdp' WHERE mail = '$mail' ");
+                // Create connection
+                $conn = new mysqli($servername, $username, $password, $dbname);
+                // Check connection
+                if ($conn->connect_error)
+                    {
+                    die("Connection failed: " . $conn->connect_error);
+                    }
 
-                if ($bdd->query($sql) === TRUE) {
+                $sql = "UPDATE membre SET password = '$mdp' WHERE mail = '$mail' ";
+
+                if ($conn->query($sql) === TRUE)
+                    {
                     echo "Record updated successfully";
-                } else {
-                    
+                    } else
+                    {
+                    echo "Error updating record: " . $conn->error;
+                    }
+
+                $conn->close();
                 }
-
-                $bdd->close();
-
-                echo "fait";
             }
-        }
         ?>
     </body>
 </html>
