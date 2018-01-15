@@ -17,34 +17,6 @@ and open the template in the editor.
             <button type="submit" name="valider"class="btn btn-default pull-right">Valider</button>
         </form>
         <?php
-        /* try
-          {
-          //Permet de récuperer les données de la base de donnée
-          $bdd = new PDO('mysql:host=localhost;dbname=penguins;charset=utf8', 'root', '');
-          } catch (Exception $e)
-          { // Si erreur
-          die('Erreur : ' . $e->getMessage());
-          }
-
-          if (isset($_POST['valider']))
-          {
-          if ($_POST['password'] === $_POST['passwordConfirm'])
-          {
-          $mail = $_POST['mail'];
-          $mdp = $_POST['password'];
-
-          $sql = $connexionPDO->prepare("UPDATE password SET password = '$mdp' WHERE mail = '$mail' ");
-          $sql->execute();
-          } else
-          {
-
-          }
-
-          $bdd->close();
-
-          echo "fait";
-          } */
-
         $servername = "localhost";
         $username = "root";
         $password = "";
